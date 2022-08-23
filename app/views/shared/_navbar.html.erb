@@ -4,7 +4,7 @@
       <%= image_tag "logo-unbygone.png" %>
     <% end %>
     <%= link_to root_path, class: "navbar-title"  do %>
-         <h1 class="navbar-brand-title"><span id="navbar-brand-first">un</span>bygone</h1>
+         <h1 class="navbar-brand-title animate__animated animate__flipInX"><span id="navbar-brand-first">un</span>bygone</h1>
     <% end %>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -20,7 +20,7 @@
             <%= cl_image_tag current_user.photo.key, width: 40, height: 40, crop: :fill, class: "avatar-bordered dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "Mon profil", "#", class: "dropdown-item" %>
-              <%= link_to "Ajouter un lieu", new_place_path, class: "dropdown-item" %>
+              <%= (link_to "Ajouter un lieu", new_place_path, class: "dropdown-item") if current_user.local_authority %>
               <%= link_to "Se déconnecter", destroy_user_session_path , class: "dropdown-item", data: {turbo_method: :delete} %>
             </div>
           </li>
