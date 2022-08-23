@@ -1,0 +1,22 @@
+.tag-activity {
+  border-radius: 5px;
+  border: solid 2px $green;
+  padding: 10px 16px;
+  font-style:normal!important;
+}
+
+.link-solo {
+  transition: ease-in-out 0.1s;
+  text-decoration: none;
+}
+
+.link-solo:hover {
+  background-color: $blue;
+  padding: 4px 15px;
+  border-radius: 3px;
+  font-weight: bold;
+}
+
+.rounded-angle {
+  border-radius: 10px;
+}
