@@ -1,13 +1,15 @@
 <div class="container m-5">
-<%= simple_form_for [@place], data: { turbo: false }  do |f| %>
-  <%= f.input :title %>
-  <%= f.input :description %>
-  <%= f.input :type_of_place, collection: ["🏚️ Maison", "🌳 Terrain", "🏰 Villa/Château", "🏘️ Hameau", "🏭 Usine/Entrepôt", "🏢 Autre bâtiment"], selected: @place.type_of_place %>
-  <%= f.input :available_for, collection: ["⌛ Location temporaire", "🏗️ Projet long terme", "🕺 Les deux"], selected: @place.available_for %>
-  <%= f.input :photos, as: :file, input_html: { multiple: true }, default: @place.photos[0] %>
-  <%= f.submit "Mettre à jour", class: "btn btn-flat mb-3" %>
-<% end %>
-
-<%= link_to "Supprimer", place_path(@place), data: {turbo_method: :delete, turbo_confirm: "Etes-vous sûr.e?"}, class: "link-solo"%>
-
+  <div class="row d-flex justify-content-center">
+    <div class="col-12 col-lg-6">
+    <%= simple_form_for [@place], data: { turbo: false }  do |f| %>
+      <%= f.input :title, label: "Nom du lieu" %>
+      <%= f.input :description, label: "Description du lieu" %>
+      <%= f.input :type_of_place, collection: ["🏚️ Maison", "🌳 Terrain", "🏰 Villa/Château", "🏘️ Hameau", "🏭 Usine/Entrepôt", "🏢 Autre bâtiment"], selected: @place.type_of_place, label: "Type de lieu"  %>
+      <%= f.input :available_for, collection: ["⌛ Location temporaire", "🏗️ Projet long terme", "🕺 Les deux"], selected: @place.available_for, label: "Disponible pour" %>
+      <%= f.input :photos, as: :file, input_html: { multiple: true }, default: @place.photos[0] %>
+      <%= f.submit "Mettre à jour", class: "btn btn-flat mb-3" %>
+    <% end %>
+    <%= link_to "Supprimer", place_path(@place), data: {turbo_method: :delete, turbo_confirm: "Etes-vous sûr.e?"}, class: "link-solo"%>
+    </div>
+  </div>
 </div>
