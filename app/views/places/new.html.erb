@@ -1,8 +1,10 @@
+<div class="container">
 <%= simple_form_for [@place], data: { turbo: false }  do |f| %>
   <%= f.input :title %>
   <%= f.input :description %>
   <%= f.input :type_of_place, collection: ["Maison", "Terrain", "Villa/Château", "Hameau", "Usine/Entrepôt", "Autre bâtiment"] %>
   <%= f.input :available_for, collection: ["Location temporaire", "Projet long terme", "Les deux"] %>
   <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-  <%= f.submit "New place", class: "btn btn-primary" %>
+  <%= f.submit "New place", class: "btn btn-flat" %>
 <% end %>
+</div>

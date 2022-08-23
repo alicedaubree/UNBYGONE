@@ -23,3 +23,12 @@
   font-size: 30px;
   color: $green;
 }
+
+.nav-item a {
+  color: $purple;
+}
+
+.nav-item a:hover {
+  color: $green;
+  font-weight: bold;
+}
