@@ -1,21 +1,21 @@
 <%- if controller_name != 'sessions' %>
-  <%= link_to "Se connecter", new_session_path(resource_name), class: "link-solo" %><br />
+  <%= link_to "Se connecter", new_session_path(resource_name), class: "link-solo mt-5" %><br />
 <% end %>
 
 <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
-  <%= link_to "S'inscrire", new_registration_path(resource_name), class: "link-solo" %><br />
+  <%= link_to "S'inscrire", new_registration_path(resource_name), class: "link-solo mt-5" %><br />
 <% end %>
 
 <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
-  <%= link_to "Mot de passe oublié ?", new_password_path(resource_name), class: "link-solo" %><br />
+  <%= link_to "Mot de passe oublié ?", new_password_path(resource_name), class: "link-solo mt-5" %><br />
 <% end %>
 
 <%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
-  <%= link_to "Vous n'avez pas reçu.e de confirmation ?", new_confirmation_path(resource_name), class: "link-solo" %><br />
+  <%= link_to "Vous n'avez pas reçu.e de confirmation ?", new_confirmation_path(resource_name), class: "link-solo mt-3" %><br />
 <% end %>
 
 <%- if devise_mapping.lockable? && resource_class.unlock_strategy_enabled?(:email) && controller_name != 'unlocks' %>
-  <%= link_to "Vous n'avez pas reçu.e d'instructions ?", new_unlock_path(resource_name), class: "link-solo" %><br />
+  <%= link_to "Vous n'avez pas reçu.e d'instructions ?", new_unlock_path(resource_name), class: "link-solo mt-3" %><br />
 <% end %>
 
 <%- if devise_mapping.omniauthable? %>
