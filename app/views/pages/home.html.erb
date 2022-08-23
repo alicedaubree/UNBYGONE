@@ -1,7 +1,24 @@
 <div class="banner">
   <div class="container">
-      <h1><i class="highlight" >Redonnez-vie à des lieux abandonnés !</i></h1>
-    <p><i class="highlight">Quel que soit votre projet, nous avons le lieu qu'il vous faut</i></p>
+      <h1><i class="highlight" >Redonnez vie à des lieux abandonnés !</i></h1>
+    <h3><i class="highlight">Quel que soit votre projet, nous avons le lieu qu'il vous faut</i></h3>
     <%= link_to "Découvrir 🕵️‍♀️", places_path, class: "btn btn-flat" %>
   </div>
+</div>
+
+<div class="cards pt-3 px-3">
+      <% @places.first(6).each do |place| %>
+      <%= link_to(place_path(place.id)) do %>
+        <div class="card-place">
+          <%=  cl_image_tag place.photos.first.key %>
+          <div class="card-place-infos p-3">
+            <div>
+              <h2><%= place.title %></h2>
+              <p><%= "#{place.description.first(200)}..." %></p>
+            </div>
+          <%= cl_image_tag place.user.photo.key,  width: 40, height: 40, crop: :fill, class: "card-place-user avatar-bordered" %>
+        </div>
+      </div>
+      <% end %>
+      <% end %>
 </div>
