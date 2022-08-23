@@ -27,8 +27,11 @@ gem "stimulus-rails"
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
 
-# Cloudinary
+# dotenv
 gem "dotenv-rails", groups: [:development, :test]
+
+# Cloudinary
+gem "cloudinary"
 
 
 # Use Redis adapter to run Action Cable in production

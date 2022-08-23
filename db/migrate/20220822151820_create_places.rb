@@ -4,7 +4,7 @@ class CreatePlaces < ActiveRecord::Migration[7.0]
       t.string :title
       t.text :description
       t.string :available_for
-      t.string :type
+      t.string :type_of_place
 
       t.references :user, null: false, foreign_key: true
 
