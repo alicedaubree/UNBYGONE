@@ -1,6 +1,6 @@
 class PlacesController < ApplicationController
 
-  before_action :set_place, only: :show
+  before_action :set_place, only: [:show, :edit, :update, :destroy]
 
   def index
     @places = Place.all
@@ -24,6 +24,20 @@ class PlacesController < ApplicationController
   def show
   end
 
+  def edit
+  end
+
+  def update
+    @place.update(place_params)
+    # Will raise ActiveModel::ForbiddenAttributesError
+    redirect_to place_path(@place)
+  end
+
+  def destroy
+    @place.destroy
+    # No need for app/views/restaurants/destroy.html.erb
+    redirect_to root_path, status: :see_other
+  end
 
   private
 
@@ -34,6 +48,4 @@ class PlacesController < ApplicationController
   def set_place
     @place = Place.find(params[:id])
   end
-
-
 end

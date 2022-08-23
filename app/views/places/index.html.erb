@@ -1,6 +1,6 @@
     <h2 class='mt-3'>Search Bar TO DO</h2>
 
-    <div class="cards pt-5">
+    <div class="cards pt-5 m-5">
       <% @places.first(6).each do |place| %>
       <%= link_to(place_path(place.id)) do %>
         <div class="card-place">
