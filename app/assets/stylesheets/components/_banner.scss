@@ -1,0 +1,28 @@
+.banner {
+  background-color: $blue;
+  padding: 100px 0;
+
+}
+
+.banner h1 {
+  margin: 15px 0;
+  color: $purple;
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.banner .highlight {
+  background-color: white;
+  padding: 4px;
+  border-radius: 3px;
+}
+
+.banner p {
+  margin: 15px 0;
+  font-size: 18px;
+  color: $green;
+}
+
+.banner i {
+  font-style:normal!important;
+}

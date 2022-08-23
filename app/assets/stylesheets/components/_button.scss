@@ -1,0 +1,15 @@
+.btn-flat {
+  color: white;
+  padding: 8px 24px;
+  border-radius: 4px;
+  background: $purple;
+  font-size: 20px;
+  font-weight: bold;
+  font-family: 'Berkshire Swash', cursive;
+  transition: 0.3s ease;
+}
+
+.btn-flat:hover {
+  background: $green;
+  color: white;
+}
