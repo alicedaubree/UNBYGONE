@@ -7,6 +7,12 @@
   padding: 0px 50px;
   color: $purple;
 }
+
+.footer-copyright {
+  font-size: 15px;
+  font-family: 'Berkshire Swash', cursive;
+}
+
 .footer-links {
   display: flex;
   align-items: center;
@@ -24,5 +30,5 @@
   transition: 0.3s ease-in-out;
 }
 .footer .fa-heart {
-  color: $purple;
+  color: $green;
 }
