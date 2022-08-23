@@ -50,11 +50,12 @@ particulier.save
 
 ## Seeding places
 
+
 place1 = Place.new(
   title: "Château Pierre Chanal",
   description: "Situé dans un domaine breton, en bordure de rivière, se trouve un magnifique château abandonné. Il est disponible à la location temporaire pour un tournage ou un évènement ponctuel.",
-  available_for: "Location temporaire",
-  type_of_place: "Villa/Château",
+  available_for: "⌛ Location temporaire",
+  type_of_place: "🏰 Villa/Château",
   user_id: region_bretagne.id
 )
 
@@ -68,8 +69,8 @@ place1.save!
 place2 = Place.new(
   title: "Hameau de Quimerch",
   description: "Hameau abandonné dans le Finistère, il est disponible pour tout projet de réhabilitation par une entreprise, une association ou un groupe de particuliers avec un projet concret.",
-  available_for: "Projet long terme",
-  type_of_place: "Hameau",
+  available_for: "🏗️ Projet long terme",
+  type_of_place: "🏘️ Hameau",
   user_id: region_bretagne.id
 )
 
@@ -84,8 +85,8 @@ place2.save!
 place3 = Place.new(
   title: "La Fonderie, usine désaffectée proche de Rennes",
   description: "Ancienne fonderie, ce site industriel fermé depuis 30 ans est disponible à la location pour des évènements ponctuels ou pour un projet de réhabilitation par une entreprise industrielle qui disposera de financements attractifs de la région.",
-  available_for: "Les deux",
-  type_of_place: "Usine/Entrepôt",
+  available_for: "🕺 Les deux",
+  type_of_place: "🏭 Usine/Entrepôt",
   user_id: region_bretagne.id
 )
 
