@@ -4,12 +4,17 @@
 
 .mapboxgl-popup-content {
   text-align: center;
-  font-family: "Open Sans", sans-serif;
+  font-weight: bold;
+  // font-family: "Open Sans", sans-serif;
 }
 
 
 .map-info-box {
   text-decoration: none;
+}
+
+.map-info-box img {
+  border-radius: 5px;
 }
 
 .mapboxgl-control-container {

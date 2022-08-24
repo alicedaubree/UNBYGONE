@@ -3,7 +3,6 @@ class ProjectsController < ApplicationController
 
   def new
     @project = Project.new
-    @placeholder = "Je souhaiterais proposer un projet pour le lieu suivant : \n- #{@place.title}\n\nqui est disponible pour un projet:\n-#{@place.available_for}\n"
   end
 
   # def search
