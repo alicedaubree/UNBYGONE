@@ -27,6 +27,13 @@ class ProjectsController < ApplicationController
     redirect_to place_path(@place), status: :see_other
   end
 
+  def accept
+    @project = Project.find(params[:id])
+    @project.accepted = true
+    @project.save
+    redirect_to root_path
+  end
+
   private
 
   def project_params
