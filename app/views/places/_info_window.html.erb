@@ -1,0 +1,4 @@
+<%= link_to(place_path(place.id), class: "map-info-box") do %>
+  <p><%= place.title %></p>
+  <%=  cl_image_tag place.photos.first.key, width: 200, height: 100, crop: :fill %>
+<% end %>

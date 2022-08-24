@@ -33,6 +33,10 @@ gem "dotenv-rails", groups: [:development, :test]
 # Cloudinary
 gem "cloudinary"
 
+# Geocoder
+gem "geocoder"
+
+
 
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
