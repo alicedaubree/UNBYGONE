@@ -53,7 +53,7 @@
         <div class="card-project-infos">
           <h2>Projet de <%= project.user.first_name %> pour <%= @place.title %>
           <% if current_user == project.user %>
-          <%= link_to(place_project_path(project), data: {turbo_method: :delete, turbo_confirm: "Etes-vous sûr.e de vouloir supprimer ce projet?"}) do%>
+          <%= link_to(place_project_path(@place.id, project.id), data: {turbo_method: :delete, turbo_confirm: "Etes-vous sûr.e de vouloir supprimer ce projet?"}) do%>
           <i class="fa-solid fa-trash-can"></i>
           <% end %>
           <% end %>
