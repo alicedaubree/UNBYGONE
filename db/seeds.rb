@@ -30,6 +30,22 @@ authority_logo = URI.open("http://fundit.fr/sites/default/files/actors/3472-regi
 region_bretagne.photo.attach(io: authority_logo, filename: "profile.png", content_type: "image/png")
 region_bretagne.save
 
+## Seeding second local authority user
+
+dpt_tarn = User.new(
+  email: "tarn@departement.com",
+  password: "xxxxxx",
+  password_confirmation: "xxxxxx",
+  local_authority: true,
+  authority_name: "Conseil départemental du Tarn"
+
+)
+
+authority_logo = URI.open("https://upload.wikimedia.org/wikipedia/fr/thumb/1/1e/Logo_D%C3%A9partement_Tarn_2019.svg/800px-Logo_D%C3%A9partement_Tarn_2019.svg.png")
+
+dpt_tarn.photo.attach(io: authority_logo, filename: "profile.png", content_type: "image/png")
+dpt_tarn.save
+
 ## Seeding regular user
 
 particulier = User.new(
@@ -96,3 +112,37 @@ place3_pic2 = URI.open("https://www.weazzy.fr/wp-content/uploads/2019/10/bretagn
 place3.photos.attach(io: place3_pic2, filename: "pic6.jpg", content_type: "image/jpg")
 
 place3.save!
+
+
+
+place4 = Place.new(
+  title: "Le Lavoir à charbon de Carmaux / Blaye-les-Mines",
+  description: "Patrimoine industriel emblématique haut de 7 étages, le lavoir à charbon de Carmaux a été inauguré en 1928 et a fermé à la fin des années 90. Il est aujourd'hui interdit d'accès pour raisons de sécurité, mais est prêt à être cédé pour accueillir un projet de reprise industrielle d'envergure. Le département offre une aide financière conséquente pour participer aux travaux de désamiantage.",
+  available_for: "🏗️ Projet long terme",
+  type_of_place: "🏭 Usine/Entrepôt",
+  user_id: dpt_tarn.id
+)
+
+place4_pic1 = URI.open("https://urbexsession.com/wp-content/uploads/2022/03/lavoir-a-charbon-de-carmaux-blaye-les-mines-7.jpg")
+place4.photos.attach(io: place4_pic1, filename: "pic5.jpg", content_type: "image/jpg")
+place4_pic2 = URI.open("https://urbexsession.com/wp-content/uploads/2022/03/lavoir-a-charbon-de-carmaux-blaye-les-mines-13.jpg")
+place4.photos.attach(io: place4_pic2, filename: "pic6.jpg", content_type: "image/jpg")
+
+place4.save!
+
+
+
+place5 = Place.new(
+  title: "Château Tremeau",
+  description: "Ce domaine érigé sous Louis XIV inscrit partiellement au titre des monuments historiques a été racheté dans les années 1970 par un riche industriel Allemand qui pendant des dizaines d'années a recherché des fonds pour le réhabiliter. Aujourd'hui la propriété du déparement, il sera le cadre idéal à tout type d'évènements : tournage de film, jeu de rôle grandeur nature ... Tout locataire devra suivre une formation de sécurité d'une matinée dispensée gratuitement par le conseil départemental afin d'accueillir votre évènement dans les meilleures conditions.",
+  available_for: "⌛ Location temporaire",
+  type_of_place: "🏰 Villa/Château",
+  user_id: dpt_tarn.id
+)
+
+place5_pic1 = URI.open("https://urbexsession.com/wp-content/uploads/2022/03/chateau-tremeau-16.jpg")
+place5.photos.attach(io: place5_pic1, filename: "pic5.jpg", content_type: "image/jpg")
+place5_pic2 = URI.open("https://urbexsession.com/wp-content/uploads/2022/03/chateau-tremeau-1.jpg")
+place5.photos.attach(io: place5_pic2, filename: "pic6.jpg", content_type: "image/jpg")
+
+place5.save!
