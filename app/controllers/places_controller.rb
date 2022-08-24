@@ -2,12 +2,15 @@ class PlacesController < ApplicationController
 
   before_action :set_place, only: [:show, :edit, :update, :destroy]
 
+
+
   def index
     @places = Place.all
   end
 
   def new
     @place = Place.new
+    @placeholder = "Description du lieu :\n\n\n\n\nCe lieu est disponible à la location pour les évènements suivants :\n\n\n\n\nNous sommes intéressés par les projets d'aménagement suivants :\n\n\n\n\n"
   end
 
   def create
