@@ -1,9 +1,13 @@
-// .cards {
-//   // display: grid;
-//   // grid-template-columns: 1fr 1fr 1fr;
-//   // grid-gap: 16px;
-//   background-color: white;
-// }
+.cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 16px;
+  background-color: white;
+}
+
+.cards a {
+  text-decoration: none;
+}
 
 .cards-index {
   background-color: white;
