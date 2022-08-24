@@ -27,7 +27,14 @@
     <p class="mx-2">Proposé par :  <%= cl_image_tag @place.user.photo.key, width: 40, height: 40, crop: :fill, class: "avatar-bordered dropdown-toggle" %> <%= @place.user.authority_name %> </p>
     <p class="my-5 mx-2"><%= @place.description %> </p>
     <p class="my-5">📍<em><%= @place.address %></em></p>
-    <p><i class="tag-activity m-2"><%= @place.type_of_place %></i><i class="tag-activity m-2"><%= @place.available_for %></i></p>
+    <p class><i class="tag-activity m-2"><%= @place.type_of_place %></i>
+    <% unless @place.available_for == "🕺 Les deux" %>
+    <i class="tag-activity m-2"><%= @place.available_for %></i></p>
+    <% else %>
+    <i class="tag-activity m-2"><%= "⌛ Location temporaire" %></i></p>
+    <p class="my-5"><i class="tag-activity m-2"><%= "🏗️ Projet long terme" %></i></p>
+    <% end %>
+
     <% if current_user == @place.user %>
     <p class="my-5 mx-2"><%= link_to "✏️ Modifier", edit_place_path, class: "link-solo" %></p>
     <% end %>
