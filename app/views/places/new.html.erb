@@ -7,8 +7,9 @@
       <%= f.input :type_of_place, collection: ["🏚️ Maison", "🌳 Terrain", "🏰 Villa/Château", "🏘️ Hameau", "🏭 Usine/Entrepôt", "🏢 Autre bâtiment"], label: "Type de lieu", default:"🏚️ Maison" %>
       <%= f.input :available_for, collection: ["⌛ Location temporaire", "🏗️ Projet long terme", "🕺 Les deux"], label: "Disponible pour", default:"⌛ Location temporaire" %>
       <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-      <%= f.submit "Créer", class: "btn btn-flat" %>
+      <%= f.submit "Créer", class: "btn btn-flat mb-3" %>
     <% end %>
+    <p><%= link_to "Revenir au menu", places_path, class:"link-solo" %></p>
     </div>
   </div>
 </div>

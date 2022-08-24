@@ -1,0 +1,40 @@
+.card-project {
+  overflow: hidden;
+  height: 120px;
+  background: white;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+}
+
+.card-project img {
+  height: 100%;
+  width: 120px;
+  object-fit: cover;
+}
+
+.card-project h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-project h3 {
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 0;
+  margin-top: 8px;
+}
+
+.card-project p {
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+}
+
+.card-project .card-project-infos {
+  padding: 16px;
+}
