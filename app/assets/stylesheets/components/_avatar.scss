@@ -1,9 +1,9 @@
-.avatar {
+.avatar-bordered {
   border-radius: 50%;
   border: $blue 2px solid;
 }
 
-.avatar:hover {
+.avatar-bordered:hover {
   transform: scale(1.05);
   border: $green 2px solid;
 }
