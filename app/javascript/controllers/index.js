@@ -4,9 +4,6 @@
 
 import { application } from "./application"
 
-import AcceptProjectButtonController from "./accept_project_button_controller"
-application.register("accept-project-button", AcceptProjectButtonController)
-
 import AddressAutocompleteController from "./address_autocomplete_controller"
 application.register("address-autocomplete", AddressAutocompleteController)
 
