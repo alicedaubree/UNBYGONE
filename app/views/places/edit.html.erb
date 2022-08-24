@@ -11,7 +11,7 @@
       <%= f.input :description, label: "Informations sur le lieu", input_html: {rows: 15} %>
       <%= f.input :type_of_place, collection: ["🏚️ Maison", "🌳 Terrain", "🏰 Villa/Château", "🏘️ Hameau", "🏭 Usine/Entrepôt", "🏢 Autre bâtiment"], selected: @place.type_of_place, label: "Type de lieu"  %>
       <%= f.input :available_for, collection: ["⌛ Location temporaire", "🏗️ Projet long terme", "🕺 Les deux"], selected: @place.available_for, label: "Disponible pour" %>
-      <%= f.input :photos, as: :file, input_html: { multiple: true }, default: @place.photos %>
+      <%= f.input :photos, as: :file, input_html: { multiple: true }  %>
       <%= f.submit "Mettre à jour", class: "btn btn-flat mb-3" %>
     <% end %>
     <%= link_to "Supprimer", place_path(@place), data: {turbo_method: :delete, turbo_confirm: "Etes-vous sûr.e?"}, class: "link-solo"%>

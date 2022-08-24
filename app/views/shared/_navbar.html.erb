@@ -14,12 +14,12 @@
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
           <li class="nav-item active">
-            <%= link_to current_user.local_authority ? current_user.authority_name : current_user.first_name, "#", class: "nav-link" %>
+            <%= link_to current_user.local_authority ? current_user.authority_name : current_user.first_name, profile_path, class: "nav-link" %>
           </li>
           <li class="nav-item dropdown">
             <%= cl_image_tag current_user.photo.key, width: 40, height: 40, crop: :fill, class: "avatar-bordered dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Mon profil", "#", class: "dropdown-item" %>
+              <%= link_to "Mon profil", profile_path, class: "dropdown-item" %>
               <%= (link_to "Ajouter un lieu", new_place_path, class: "dropdown-item") if current_user.local_authority %>
               <%= link_to "Se déconnecter", destroy_user_session_path , class: "dropdown-item", data: {turbo_method: :delete} %>
             </div>

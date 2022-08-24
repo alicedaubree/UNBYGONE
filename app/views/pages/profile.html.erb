@@ -1,0 +1,87 @@
+<% if current_user %>
+
+
+<% if current_user.local_authority %>
+
+<div class="container">
+<h2>Mes lieux</h2>
+
+<div class="cards pt-3 px-3 m-5">
+      <% current_user.places.each do |place| %>
+      <%= link_to(place_path(place.id)) do %>
+        <div class="card-place">
+          <%=  cl_image_tag place.photos.first.key %>
+          <div class="card-place-infos p-3">
+            <div>
+              <h2><%= place.title %></h2>
+              <p><%= "#{place.description.first(200)}..." %></p>
+            </div>
+          <%= cl_image_tag place.user.photo.key,  width: 40, height: 40, crop: :fill, class: "card-place-user avatar-bordered" %>
+        </div>
+      </div>
+      <% end %>
+      <% end %>
+</div>
+
+</div>
+
+<% end %>
+
+<div class="container">
+
+<h2>Mes projets</h2>
+
+<% if current_user.local_authority %>
+
+  <div class="row">
+    <div class="col-12">
+    <% current_user.places.each do |place| %>
+    <% place.projects.each do |project| %>
+      <div class="card-project my-5" data-aos="flip-down">
+      <%= cl_image_tag project.user.photo.key, crop: :fill %>
+        <div class="card-project-infos">
+          <h2>Projet de <%= project.user.first_name %> pour <%= place.title %></h2>
+          <h3><%= project.accepted ? "✅ Ce projet est accepté" : "⌚ Ce projet est en attente d'acceptation" %></h3>
+          <p><%= project.details %></p>
+          <p><%= project.start_date %> <%= "- #{project.end_date}" if project.end_date %></p>
+          <a class="m-1 link-solo", href=<%= "mailto:#{project.user.email}" %>>Envoyer un e-mail à <%= project.user.first_name %></a>
+          <% unless project.accepted %>
+          <%= link_to "Accepter le projet", accept_place_project_path(place.id, project.id), data: {turbo_method: :patch}, class:" m-1 link-solo"%>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+    <% end %>
+    </div>
+  </div>
+
+<% else %>
+
+  <div class="row">
+    <div class="col-12">
+    <% current_user.projects.each do |project| %>
+      <div class="card-project my-5" data-aos="flip-down">
+      <%= cl_image_tag project.user.photo.key, crop: :fill %>
+        <div class="card-project-infos">
+          <h2>Projet de <%= project.user.first_name %> pour <%= project.place.title %></h2>
+          <h3><%= project.accepted ? "✅ Ce projet est accepté" : "⌚ Ce projet est en attente d'acceptation" %></h3>
+          <p><%= project.details %></p>
+          <p><%= project.start_date %> - <%= project.end_date %></p>
+
+
+        </div>
+      </div>
+    <% end %>
+    </div>
+  </div>
+
+<% end %>
+
+</div>
+
+<% else %>
+
+<%= link_to "Connectez-vous pour voir votre profil", new_user_session_path, class: "nav-link" %>
+
+
+<% end %>
