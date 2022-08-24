@@ -4,8 +4,8 @@
     <%= simple_form_for [@place], data: { turbo: false }  do |f| %>
       <%= f.input :title, label: "Nom du lieu" %>
       <%= f.input :description, label: "Informations sur le lieu", input_html: {value: @placeholder, rows: 15} %>
-      <%= f.input :type_of_place, collection: ["🏚️ Maison", "🌳 Terrain", "🏰 Villa/Château", "🏘️ Hameau", "🏭 Usine/Entrepôt", "🏢 Autre bâtiment"], label: "Type de lieu" %>
-      <%= f.input :available_for, collection: ["⌛ Location temporaire", "🏗️ Projet long terme", "🕺 Les deux"], label: "Disponible pour" %>
+      <%= f.input :type_of_place, collection: ["🏚️ Maison", "🌳 Terrain", "🏰 Villa/Château", "🏘️ Hameau", "🏭 Usine/Entrepôt", "🏢 Autre bâtiment"], label: "Type de lieu", default:"🏚️ Maison" %>
+      <%= f.input :available_for, collection: ["⌛ Location temporaire", "🏗️ Projet long terme", "🕺 Les deux"], label: "Disponible pour", default:"⌛ Location temporaire" %>
       <%= f.input :photos, as: :file, input_html: { multiple: true } %>
       <%= f.submit "Créer", class: "btn btn-flat" %>
     <% end %>

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <%= favicon_link_tag asset_path('logo-unbygone.png') %>
+    <%= favicon_link_tag asset_path('favicon-unbygone.png') %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,7 +21,7 @@
   <body>
     <%= render "shared/navbar" %>
     <%= yield %>
-    <%= render "devise/shared/flashes" %>
+    <%= render "shared/flashes" %>
     <%= render "shared/footer" %>
   </body>
 </html>
