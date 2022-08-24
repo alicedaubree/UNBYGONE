@@ -2,7 +2,7 @@
   <div class="row d-flex justify-content-center">
     <div class="col-12 col-lg-6">
       <%= simple_form_for [@place, @project], data: { turbo: false } do |f| %>
-        <%= f.input :details, label: "Décrivez votre projet", input_html: {value: @placeholder, rows: 10} %>
+        <%= f.input :details, label: "Décrivez ici votre projet pour #{@place.title} :" %>
         <%= f.input :start_date, label: "Date de début du projet" %>
         <% if @place.available_for == "⌛ Location temporaire" || @place.available_for == "🕺 Les deux" %>
           <%= f.input :end_date, label: "Date de fin du projet" %>

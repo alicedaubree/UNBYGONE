@@ -6,19 +6,24 @@
   </div>
 </div>
 
-<div class="cards pt-3 px-3 m-5">
+<div class="container my-5">
+  <div class="row">
       <% @places.first(6).each do |place| %>
+      <div class="cards-index col-12 col-lg-4">
       <%= link_to(place_path(place.id)) do %>
-        <div class="card-place">
+        <div class="card-place m-2">
           <%=  cl_image_tag place.photos.first.key %>
           <div class="card-place-infos p-3">
             <div>
-              <h2><%= place.title %></h2>
-              <p><%= "#{place.description.first(200)}..." %></p>
+              <h2 class="mb-2"><%= place.title %></h2>
+              <p><%= "#{place.description.first(150)}..." %></p>
             </div>
           <%= cl_image_tag place.user.photo.key,  width: 40, height: 40, crop: :fill, class: "card-place-user avatar-bordered" %>
         </div>
       </div>
       <% end %>
+      </div>
       <% end %>
+    </div>
+  </div>
 </div>
