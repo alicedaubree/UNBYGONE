@@ -22,7 +22,21 @@
     <%= link_to "Découvrir 🕵️‍♀️", places_path, class: "btn btn-flat" %>
   </div>
 </div>
-
+<div class="container my-5">
+  <div class="row">
+    <% @activities.each do |activity| %>
+    <% if activity.name != "🤔 Autre" %>
+      <div class="col-12 col-lg-4 tag-activity">
+          <%= link_to(places_path) do %>
+              <%# <div class="tag-activity m-2"> %>
+              <%=  activity.name %>
+              <%# </div> %>
+          <% end %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
 <div class="container my-5">
   <div class="row">
       <% @places.first(6).each do |place| %>

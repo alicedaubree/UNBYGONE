@@ -1,6 +1,7 @@
 class PagesController < ApplicationController
   def home
     @places = Place.all
+    @activities = Activity.all
   end
 
   def profile

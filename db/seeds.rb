@@ -12,6 +12,8 @@ require "open-uri"
 
 User.destroy_all
 Place.destroy_all
+Activity.destroy_all
+PlaceActivity.destroy_all
 
 
 ## Seeding local authority user
@@ -151,3 +153,95 @@ place5_pic2 = URI.open("https://urbexsession.com/wp-content/uploads/2022/03/chat
 place5.photos.attach(io: place5_pic2, filename: "pic6.jpg", content_type: "image/jpg")
 
 place5.save!
+
+activity_1 = Activity.new(
+  name: "🎬 Tournage de film",
+  activity_available_for: "⌛ Location temporaire"
+)
+activity_1.save!
+
+activity_2 = Activity.new(
+  name: "🎉 Fête de quartier",
+  activity_available_for: "⌛ Location temporaire"
+)
+activity_2.save!
+
+activity_3 = Activity.new(
+  name: "🎲 Jeu de rôle grandeur nature",
+  activity_available_for: "⌛ Location temporaire"
+)
+activity_3.save!
+
+activity_4 = Activity.new(
+  name: "🛍️ Pop-up store",
+  activity_available_for: "⌛ Location temporaire"
+)
+activity_4.save!
+
+activity_5 = Activity.new(
+  name: "🎭 Perfomance artistique",
+  activity_available_for: "⌛ Location temporaire"
+)
+activity_5.save!
+
+activity_10 = Activity.new(
+  name: "🪀 Stage / séminaire",
+  activity_available_for: "⌛ Location temporaire"
+)
+activity_10.save!
+
+activity_6 = Activity.new(
+  name: "🤔 Autre",
+  activity_available_for: "⌛ Location temporaire"
+)
+activity_6.save!
+
+activity_8 = Activity.new(
+  name: "🫑 Potager de quartier",
+  activity_available_for: "🏗️ Projet long terme"
+)
+activity_8.save!
+
+activity_9 = Activity.new(
+  name: "🛖 Résidence principale",
+  activity_available_for: "🏗️ Projet long terme"
+)
+activity_9.save!
+
+activity_11 = Activity.new(
+  name: "🎨 Résidence d'artiste / musée",
+  activity_available_for: "🏗️ Projet long terme"
+)
+activity_11.save!
+
+activity_12 = Activity.new(
+  name: "🍺 Bar et restaurant",
+  activity_available_for: "🏗️ Projet long terme"
+)
+activity_12.save!
+
+activity_13 = Activity.new(
+  name: "💻 Coworking",
+  activity_available_for: "🏗️ Projet long terme"
+)
+activity_13.save!
+
+activity_14 = Activity.new(
+  name: "😷 Lieu d'accueil médico-social",
+  activity_available_for: "🏗️ Projet long terme"
+)
+activity_14.save!
+
+activity_7 = Activity.new(
+  name: "🤔 Autre",
+  activity_available_for: "🏗️ Projet long terme"
+)
+activity_7.save!
+
+
+place_activity1 = PlaceActivity.new(
+  activity_id: activity_1.id,
+  place_id: place5.id
+)
+
+place_activity1.save!

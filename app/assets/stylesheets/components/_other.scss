@@ -1,8 +1,23 @@
-.tag-activity {
+.tag-project {
   border-radius: 5px;
   border: solid 2px $green;
   padding: 10px 16px;
   font-style:normal!important;
+}
+
+.tag-activity {
+  border-radius: 5px;
+  background-color: $blue;
+  color: $purple;
+  padding: 10px 16px;
+  font-style:normal!important;
+  text-decoration: none;
+}
+
+.tag-activity:hover {
+  background-color: $purple;
+  color: $white;
+  font-weight: bolder;
 }
 
 .link-solo {

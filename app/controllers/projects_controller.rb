@@ -36,7 +36,7 @@ class ProjectsController < ApplicationController
   private
 
   def project_params
-    params.require(:project).permit(:details, :start_date, :end_date, :accepted, :user_id, :place_id)
+    params.require(:project).permit(:details, :start_date, :end_date, :accepted, :user_id, :place_id, :activity_id)
   end
 
   def set_place

@@ -7,7 +7,6 @@ Rails.application.routes.draw do
       member do
         patch :accept
       end
-
     end
   end
   get 'profile', to: 'pages#profile'

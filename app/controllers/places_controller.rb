@@ -26,6 +26,8 @@ class PlacesController < ApplicationController
 
   def new
     @place = Place.new
+    @activities_temp = Activity.where(activity_available_for: "⌛ Location temporaire")
+    @activities_long = Activity.where(activity_available_for: "🏗️ Projet long terme")
     @placeholder = "Description du lieu :\n\n\n\n\nCe lieu est disponible à la location pour les évènements suivants :\n\n\n\n\nNous sommes intéressés par les projets d'aménagement suivants :\n\n\n\n\n"
   end
 
@@ -38,6 +40,14 @@ class PlacesController < ApplicationController
       redirect_to places_path(@place)
     else
       render :new
+    end
+    params_place_activities = params[:place][:activities]
+    params_place_activities.select! do |p|
+      p != ""
+    end
+    params_place_activities.each do |activity|
+      place_act = PlaceActivity.new(activity_id: activity, place_id: @place.id)
+      place_act.save!
     end
   end
 

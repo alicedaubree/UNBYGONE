@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_08_24_085910) do
+ActiveRecord::Schema[7.0].define(version: 2022_08_25_131456) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -42,6 +42,22 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_24_085910) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "activities", force: :cascade do |t|
+    t.string "name"
+    t.string "activity_available_for"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "place_activities", force: :cascade do |t|
+    t.bigint "place_id", null: false
+    t.bigint "activity_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["activity_id"], name: "index_place_activities_on_activity_id"
+    t.index ["place_id"], name: "index_place_activities_on_place_id"
+  end
+
   create_table "places", force: :cascade do |t|
     t.string "title"
     t.text "description"
@@ -65,6 +81,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_24_085910) do
     t.bigint "place_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "activity_id"
+    t.index ["activity_id"], name: "index_projects_on_activity_id"
     t.index ["place_id"], name: "index_projects_on_place_id"
     t.index ["user_id"], name: "index_projects_on_user_id"
   end
@@ -87,7 +105,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_24_085910) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "place_activities", "activities"
+  add_foreign_key "place_activities", "places"
   add_foreign_key "places", "users"
+  add_foreign_key "projects", "activities"
   add_foreign_key "projects", "places"
   add_foreign_key "projects", "users"
 end
