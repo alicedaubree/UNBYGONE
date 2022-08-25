@@ -5,7 +5,16 @@ class PlacesController < ApplicationController
 
 
   def index
-    @places = Place.all
+    if params[:query].present?
+      sql_query = "places.title @@ :query \
+      OR places.description @@ :query \
+      OR users.authority_name @@ :query \
+      OR places.address @@ :query \
+      OR places.type_of_place @@ :query"
+      @places = Place.joins(:user).where(sql_query, query: "%#{params[:query]}%")
+    else
+      @places = Place.all
+    end
     @markers = @places.geocoded.map do |place|
       {
         lat: place.latitude,

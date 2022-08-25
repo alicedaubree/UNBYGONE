@@ -1,4 +1,14 @@
 <div class="container">
+
+<%= form_with url: places_path, method: :get, class: "d-flex my-4" do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "Trouvez un lieu"
+  %>
+  <%= submit_tag "Search", class: "btn btn-primary" %>
+<% end %>
+
 <div class="row">
 <div class="col-12 col-lg-4">
     <div class="cards-index">
