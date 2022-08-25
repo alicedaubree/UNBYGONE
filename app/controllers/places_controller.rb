@@ -41,6 +41,14 @@ class PlacesController < ApplicationController
   end
 
   def show
+    @marker_place = Place.where(id: @place.id)
+    @markers = @marker_place.geocoded.map do |place|
+      {
+        lat: place.latitude,
+        lng: place.longitude,
+        info_window: render_to_string(partial: "info_window", locals: {place: place}), image_url: helpers.asset_url("pin_map.png"),
+      }
+    end
   end
 
   def edit
