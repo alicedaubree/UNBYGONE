@@ -6,4 +6,5 @@ class User < ApplicationRecord
   has_many :places, dependent: :destroy
   has_many :projects, dependent: :destroy
   has_one_attached :photo
+  validates :photo, presence: true
 end
