@@ -1,6 +1,6 @@
 .card-project {
   overflow: hidden;
-  height: 120px;
+  height: auto;
   background: white;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   border-radius: 5px;
@@ -36,5 +36,5 @@
 }
 
 .card-project .card-project-infos {
-  padding: 16px;
+  padding: 20px;
 }
