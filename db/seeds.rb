@@ -195,7 +195,7 @@ place4.save!
 
 place5 = Place.new(
   title: "Château Tremeau",
-  description: "Ce domaine érigé sous Louis XIV inscrit partiellement au titre des monuments historiques a été racheté dans les années 1970 par un riche industriel Allemand qui pendant des dizaines d'années a recherché des fonds pour le réhabiliter. Aujourd'hui la propriété du déparement, il sera le cadre idéal à tout type d'évènements : tournage de film, jeu de rôle grandeur nature ... Tout locataire devra suivre une formation de sécurité d'une matinée dispensée gratuitement par le conseil départemental afin d'accueillir votre évènement dans les meilleures conditions.",
+  description: "Ce domaine érigé sous Louis XIV inscrit partiellement au titre des monuments historiques a été racheté dans les années 1970 par un riche industriel Allemand qui pendant des dizaines d'années a recherché des fonds pour le réhabiliter. Aujourd'hui la propriété du déparement, il sera le cadre idéal pour vos évènements. Tout locataire devra suivre une formation de sécurité d'une matinée dispensée gratuitement par le conseil départemental afin d'accueillir votre évènement dans les meilleures conditions.",
   available_for: "⌛ Location temporaire",
   type_of_place: "🏰 Villa/Château",
   user_id: dpt_tarn.id,
@@ -434,6 +434,11 @@ place_activity21 = PlaceActivity.new(
 )
 place_activity21.save!
 
+place_activity22 = PlaceActivity.new(
+  place_id: place4.id,
+  activity_id: activity_2.id
+)
+place_activity22.save!
 
 
 
