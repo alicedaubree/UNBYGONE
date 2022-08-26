@@ -84,7 +84,7 @@
           <% end %>
           </h2>
           <h3><%= project.accepted ? "✅ Ce projet est accepté" : "⏰ Ce projet est en attente d'acceptation" %></h3>
-          <p><%= project.details.first(50) %></p>
+          <p><%= project.details.first(100) %></p>
           <p><span class="me-5"><strong><%= project.activity.name %></strong></span><%= project.start_date %><% if project.end_date %> - <%= project.end_date%><% end %></p>
         </div>
       </div>

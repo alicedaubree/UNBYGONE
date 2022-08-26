@@ -30,7 +30,6 @@
 <div class="container">
 
 <h2><strong>Mes projets</strong></h2>
-
 <% if current_user.local_authority %>
 
   <div class="row">
@@ -76,7 +75,6 @@
 <% end %>
 
 </div>
-
 <% else %>
 
 <%= link_to "Connectez-vous pour voir votre profil", new_user_session_path, class: "nav-link" %>
