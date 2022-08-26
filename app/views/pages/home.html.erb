@@ -24,11 +24,12 @@
 </div>
 <div class="container my-5">
   <div class="row">
+  <h3 class="text-center mt-1 mb-5" id="home-title">La seule limite est votre imagination...</h3>
     <% @activities.each do |activity| %>
     <% if activity.name != "🤔 Autre" %>
-      <div class="col-12 col-lg-4">
-      <div class="tag-activity m-2">
-          <a href="http://localhost:3000/places?query=<%= activity.name %>&commit=Search"><%= activity.name %></a>
+      <div class="col-6 col-lg-3 d-flex-inline">
+      <div class="my-3">
+          <i class="tag-activity"><a href="http://localhost:3000/places?query=<%= activity.name %>&commit=Search"><%= activity.name %></a></i>
       </div>
           <%# <%= link_to(places_path) do %>
               <%# <div class="tag-activity m-2"> %>
@@ -42,7 +43,8 @@
 </div>
 <div class="container my-5">
   <div class="row">
-      <% @places.first(6).each do |place| %>
+  <h3 class="text-center my-5" id="home-title">Ils atttendent vos projets !</h3>
+      <% @places.last(6).each do |place| %>
       <div class="cards-index col-12 col-lg-4">
       <%= link_to(place_path(place.id)) do %>
         <div class="card-place m-2">
