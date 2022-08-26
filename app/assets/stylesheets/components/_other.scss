@@ -11,13 +11,18 @@
   color: $purple;
   padding: 10px 16px;
   font-style:normal!important;
+}
+
+.tag-activity a {
   text-decoration: none;
 }
 
 .tag-activity:hover {
-  background-color: $purple;
   color: $white;
-  font-weight: bolder;
+  background-color: $purple;
+  & a {
+    color: $white;
+  }
 }
 
 .link-solo {
@@ -46,4 +51,10 @@
 
 body {
   padding-top: 80px !important;
+}
+
+#home-title {
+  color: $green;
+  font-weight: 700;
+  font-size: 22px;
 }
