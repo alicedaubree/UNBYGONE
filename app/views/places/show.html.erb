@@ -23,17 +23,17 @@
         </div>
       </div>
     <div class="col-12 col-lg-4 d-flex flex-column">
-      <h2 class="mx-2"><strong><%= @place.title %></strong></h2>
+      <h2 class="mx-2 mt-2"><strong><%= @place.title %></strong></h2>
       <p class="mx-2"><%= @place.description %> </p>
 
       <p class="mx-2">Proposé par :<%= cl_image_tag @place.user.photo.key, width: 40, height: 40, crop: :fill, class: "avatar-bordered dropdown-toggle mx-1" %> <strong><%= @place.user.authority_name %></strong> </p>
 
-      <p class="mx-2"><i class="tag-type"><%= @place.type_of_place %></i>
+      <p class="mx-2 my-3"><i class="tag-type"><%= @place.type_of_place %></i>
     <% unless @place.available_for == "🕺 Les deux" %>
       <i class="tag-project"><%= @place.available_for %></i></p>
     <% else %>
-      <p class="mx-2"><i class="tag-project"><%= "⌛ Location temporaire" %></i></p>
-      <p class="mx-2"><i class="tag-project"><%= "🏗️ Projet long terme" %></i></p>
+      <p class="mx-2 my-3"><i class="tag-project"><%= "⌛ Location temporaire" %></i></p>
+      <p class="mx-2 my-3"><i class="tag-project"><%= "🏗️ Projet long terme" %></i></p>
     <% end %>
 
       <% @place.activities.each do |activity| %>
@@ -60,19 +60,19 @@
     <h4 class="text-center my-2"><strong>Projets en cours</strong></h4>
     <% if @place.projects.size == 0 %>
     <% if current_user.nil? %>
-    <p class="text-center my-2"><%= link_to "💡 Connectez-vous et proposez un projet pour #{@place.title}!", new_user_session_path, class: "link-solo" %></p>
+    <p class="text-center my-2"><%= link_to "💡 Connectez-vous et proposez un projet pour #{@place.title} !", new_user_session_path, class: "link-solo" %></p>
     <% elsif !current_user.local_authority %>
     <p class="text-center my-2">Il n'y a pas encore de projet en cours pour <%=@place.title%>, <br><%= link_to "proposez-en un 💡", new_place_project_path(@place.id), class: "link-solo" %></p>
     <% end %>
     <% else %>
         <% if current_user.nil? %>
-        <p class="text-center my-2 "><%= link_to "💡 Connectez-vous et proposez un projet pour #{@place.title}!", new_user_session_path, class: "link-solo" %></p>
+        <p class="text-center my-2 "><%= link_to "💡 Connectez-vous et proposez un projet pour #{@place.title} !", new_user_session_path, class: "link-solo" %></p>
         <% elsif !current_user.local_authority %>
         <p class="text-center my-2"><%= link_to "💡 Proposez un projet pour #{@place.title}", new_place_project_path(@place.id), class: "link-solo" %></p>
         <% end %>
         <% @place.projects.each do |project| %>
       <div class="card-project my-5" data-aos="flip-down">
-      <%= cl_image_tag project.user.photo.key, crop: :fill %>
+      <%= cl_image_tag project.user.photo.key, crop: :fill, height: 100, width:100 %>
         <div class="card-project-infos">
           <h2>Projet de <%= project.user.first_name %> pour <%= @place.title %>
           <% if current_user == project.user %>
