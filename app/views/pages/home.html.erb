@@ -26,12 +26,15 @@
   <div class="row">
     <% @activities.each do |activity| %>
     <% if activity.name != "🤔 Autre" %>
-      <div class="col-12 col-lg-4 tag-activity">
-          <%= link_to(places_path) do %>
+      <div class="col-12 col-lg-4">
+      <div class="tag-activity m-2">
+          <a href="http://localhost:3000/places?query=<%= activity.name %>&commit=Search"><%= activity.name %></a>
+      </div>
+          <%# <%= link_to(places_path) do %>
               <%# <div class="tag-activity m-2"> %>
-              <%=  activity.name %>
+              <%# <%=  activity.name %>
               <%# </div> %>
-          <% end %>
+          <%# <% end %>
         </div>
       <% end %>
     <% end %>

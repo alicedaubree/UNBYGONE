@@ -12,7 +12,8 @@
 <div class="row">
 <div class="col-12 col-lg-4">
     <div class="cards-index">
-      <% @places.each do |place| %>
+    <% @places_index = @places unless @places_index  %>
+      <% @places_index.each do |place| %>
       <%= link_to(place_path(place.id)) do %>
         <div class="card-place mb-5">
           <%=  cl_image_tag place.photos.first.key %>
