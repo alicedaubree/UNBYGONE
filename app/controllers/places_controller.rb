@@ -10,8 +10,10 @@ class PlacesController < ApplicationController
       OR places.description @@ :query \
       OR users.authority_name @@ :query \
       OR places.address @@ :query \
-      OR places.type_of_place @@ :query"
-      @places = Place.joins(:user).where(sql_query, query: "%#{params[:query]}%")
+      OR places.type_of_place @@ :query \
+      OR activities.name @@ :query"
+      @places = Place.joins(:user).joins(:place_activities).joins(:activities).where(sql_query, query: "%#{params[:query]}%")
+      @places_index = @places.uniq
     else
       @places = Place.all
     end
