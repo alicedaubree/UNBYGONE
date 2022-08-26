@@ -158,7 +158,7 @@ place2.save!
 
 
 place3 = Place.new(
-  title: "La Fonderie, usine désaffectée proche de Rennes",
+  title: "La Fonderie, usine désaffectée",
   description: "Ancienne fonderie, ce site industriel fermé depuis 30 ans est disponible à la location pour des évènements ponctuels ou pour un projet de réhabilitation par une entreprise industrielle qui disposera de financements attractifs de la région.",
   available_for: "🕺 Les deux",
   type_of_place: "🏭 Usine/Entrepôt",
@@ -176,7 +176,7 @@ place3.save!
 
 
 place4 = Place.new(
-  title: "Le Lavoir à charbon de Carmaux / Blaye-les-Mines",
+  title: "Le Lavoir à charbon de Carmaux",
   description: "Patrimoine industriel emblématique haut de 7 étages, le lavoir à charbon de Carmaux a été inauguré en 1928 et a fermé à la fin des années 90. Il est aujourd'hui interdit d'accès pour raisons de sécurité, mais est prêt à être cédé pour accueillir un projet de reprise industrielle d'envergure. Le département offre une aide financière conséquente pour participer aux travaux de désamiantage.",
   available_for: "🏗️ Projet long terme",
   type_of_place: "🏭 Usine/Entrepôt",
@@ -372,6 +372,69 @@ place_activity11 = PlaceActivity.new(
   activity_id: activity_10.id
 )
 place_activity11.save!
+
+place_activity12 = PlaceActivity.new(
+  place_id: place4.id,
+  activity_id: activity_1.id
+)
+place_activity12.save!
+
+place_activity13 = PlaceActivity.new(
+  place_id: place4.id,
+  activity_id: activity_3.id
+)
+place_activity13.save!
+
+place_activity14 = PlaceActivity.new(
+  place_id: place4.id,
+  activity_id: activity_4.id
+)
+place_activity14.save!
+
+place_activity15 = PlaceActivity.new(
+  place_id: place4.id,
+  activity_id: activity_5.id
+)
+place_activity15.save!
+
+place_activity16 = PlaceActivity.new(
+  place_id: place4.id,
+  activity_id: activity_8.id
+)
+place_activity16.save!
+
+place_activity17 = PlaceActivity.new(
+  place_id: place4.id,
+  activity_id: activity_9.id
+)
+place_activity17.save!
+
+place_activity18 = PlaceActivity.new(
+  place_id: place4.id,
+  activity_id: activity_10.id
+)
+place_activity18.save!
+
+
+place_activity19 = PlaceActivity.new(
+  place_id: place4.id,
+  activity_id: activity_12.id
+)
+place_activity19.save!
+
+place_activity20 = PlaceActivity.new(
+  place_id: place4.id,
+  activity_id: activity_13.id
+)
+place_activity20.save!
+
+place_activity21 = PlaceActivity.new(
+  place_id: place4.id,
+  activity_id: activity_14.id
+)
+place_activity21.save!
+
+
 
 
 
