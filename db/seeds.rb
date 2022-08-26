@@ -75,7 +75,7 @@ place1 = Place.new(
   available_for: "⌛ Location temporaire",
   type_of_place: "🏰 Villa/Château",
   user_id: region_bretagne.id,
-  address: "Chateau de, Kervézec, 29610 Garlan"
+  address: "29610 Garlan"
 )
 
 place1_pic1 = URI.open("https://urbexsession.com/wp-content/uploads/2018/05/chateau-pierre-chanal-5.jpg")
