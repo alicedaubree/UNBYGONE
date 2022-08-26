@@ -65,11 +65,21 @@ class PlacesController < ApplicationController
   end
 
   def edit
+    @activities_temp = Activity.where(activity_available_for: "⌛ Location temporaire")
+    @activities_long = Activity.where(activity_available_for: "🏗️ Projet long terme")
   end
 
   def update
     @place.update(place_params)
-    # Will raise ActiveModel::ForbiddenAttributesError
+    params_place_activities = params[:place][:activities]
+    params_place_activities.select! do |p|
+      p != ""
+    end
+    @place.place_activities.destroy_all
+    params_place_activities.each do |activity|
+      place_act = PlaceActivity.new(activity_id: activity, place_id: @place.id)
+      place_act.save!
+    end
     redirect_to place_path(@place)
   end
 

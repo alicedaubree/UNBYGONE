@@ -8,9 +8,11 @@
   wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}}
       %>
 
-      <%= f.input :description, label: "Informations sur le lieu", input_html: {rows: 15} %>
+      <%= f.input :description, label: "Informations sur le lieu", input_html: {rows: 10} %>
       <%= f.input :type_of_place, collection: ["🏚️ Maison", "🌳 Terrain", "🏰 Villa/Château", "🏘️ Hameau", "🏭 Usine/Entrepôt", "🏢 Autre bâtiment"], selected: @place.type_of_place, label: "Type de lieu"  %>
       <%= f.input :available_for, collection: ["⌛ Location temporaire", "🏗️ Projet long terme", "🕺 Les deux"], selected: @place.available_for, label: "Disponible pour" %>
+      <%= f.input :activities, as: :check_boxes, collection: @activities_temp, wrapper: :horizontal_collection_inline, label: "Activités temporaires possibles" %>
+      <%= f.input :activities, as: :check_boxes, collection: @activities_long, wrapper: :horizontal_collection_inline, label: "Projets long terme possibles"%>
       <%= f.input :photos, as: :file, input_html: { multiple: true }  %>
       <%= f.submit "Mettre à jour", class: "btn btn-flat mb-3" %>
     <% end %>
