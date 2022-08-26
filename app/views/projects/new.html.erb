@@ -7,7 +7,7 @@
         <% if @place.available_for == "⌛ Location temporaire" || @place.available_for == "🕺 Les deux" %>
           <%= f.input :end_date, label: "Date de fin du projet" %>
         <% end %>
-        <%= f.input :activity_id, collection: @place.activities, label: "Test" %>
+        <%= f.input :activity_id, collection: @place.activities, label: "Activité proposée" %>
         <%= f.submit "Proposer mon projet", class: "btn btn-flat mb-3"%>
       <% end %>
     <p><%= link_to "Revenir au menu", places_path, class:"link-solo" %></p>
