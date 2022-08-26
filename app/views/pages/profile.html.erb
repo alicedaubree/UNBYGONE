@@ -61,7 +61,7 @@
     <div class="col-12 col-lg-8">
     <% current_user.projects.each do |project| %>
       <div class="card-project my-5" data-aos="flip-down">
-      <%= cl_image_tag project.place.photos[0].key, crop: :fill, class: "m-2 rounded" %>
+      <%= cl_image_tag project.place.photos[0].key, crop: :fill, crop: :fill, height: 100, width:100 %>
         <div class="card-project-infos">
           <h2>Votre projet pour <%= project.place.title %></h2>
           <h3><%= project.accepted ? "✅ Ce projet est accepté" : "⌚ Ce projet est en attente d'acceptation par #{project.place.user.authority_name}" %></h3>
