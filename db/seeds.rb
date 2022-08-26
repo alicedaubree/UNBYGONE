@@ -14,6 +14,7 @@ User.destroy_all
 Place.destroy_all
 Activity.destroy_all
 PlaceActivity.destroy_all
+Project.destroy_all
 
 
 ## Seeding local authority user
@@ -64,6 +65,60 @@ profile_pic = URI.open("https://upload.wikimedia.org/wikipedia/commons/thumb/5/5
 particulier.photo.attach(io: profile_pic, filename: "profile.jpg", content_type: "image/jpg")
 
 particulier.save
+
+
+user_evan = User.new(
+  email: "evan@evan.com",
+  password: "xxxxxx",
+  password_confirmation: "xxxxxx",
+  local_authority: false,
+  first_name: "Evan",
+  last_name: "Abaella"
+)
+
+profile_pic = URI.open("https://i.imgur.com/KvGhU6H.jpg")
+
+user_evan.photo.attach(io: profile_pic, filename: "profile.jpg", content_type: "image/jpg")
+
+user_evan.save
+
+
+user_silvia = User.new(
+  email: "silvia@silvia.com",
+  password: "xxxxxx",
+  password_confirmation: "xxxxxx",
+  local_authority: false,
+  first_name: "Silvia",
+  last_name: "Pasini"
+)
+
+profile_pic = URI.open("https://i.imgur.com/PSEZuno.jpg")
+
+user_silvia.photo.attach(io: profile_pic, filename: "profile.jpg", content_type: "image/jpg")
+
+user_silvia.save
+
+
+
+user_olivier = User.new(
+  email: "olivier@olivier.com",
+  password: "xxxxxx",
+  password_confirmation: "xxxxxx",
+  local_authority: false,
+  first_name: "Olivier",
+  last_name: "Barthelemy"
+)
+
+profile_pic = URI.open("https://i.imgur.com/V2OjIT9.jpg")
+
+user_olivier.photo.attach(io: profile_pic, filename: "profile.jpg", content_type: "image/jpg")
+
+user_olivier.save
+
+
+
+
+
 
 
 ## Seeding places
@@ -240,8 +295,105 @@ activity_7.save!
 
 
 place_activity1 = PlaceActivity.new(
-  activity_id: activity_1.id,
-  place_id: place5.id
+  place_id: place1.id,
+  activity_id: activity_1.id
 )
 
 place_activity1.save!
+
+
+place_activity2 = PlaceActivity.new(
+  place_id: place1.id,
+  activity_id: activity_5.id
+)
+
+place_activity2.save!
+
+
+place_activity3 = PlaceActivity.new(
+  place_id: place1.id,
+  activity_id: activity_3.id
+)
+
+place_activity3.save!
+
+
+place_activity4 = PlaceActivity.new(
+  place_id: place2.id,
+  activity_id: activity_11.id
+)
+
+place_activity4.save!
+
+
+place_activity5 = PlaceActivity.new(
+  place_id: place2.id,
+  activity_id: activity_9.id
+)
+place_activity5.save!
+
+
+place_activity6 = PlaceActivity.new(
+  place_id: place3.id,
+  activity_id: activity_1.id
+)
+place_activity6.save!
+
+
+
+place_activity7 = PlaceActivity.new(
+  place_id: place3.id,
+  activity_id: activity_14.id
+)
+place_activity7.save!
+
+place_activity8 = PlaceActivity.new(
+  place_id: place3.id,
+  activity_id: activity_7.id
+)
+place_activity8.save!
+
+
+place_activity9 = PlaceActivity.new(
+  place_id: place4.id,
+  activity_id: activity_11.id
+)
+place_activity9.save!
+
+
+place_activity10 = PlaceActivity.new(
+  place_id: place5.id,
+  activity_id: activity_5.id
+)
+place_activity10.save!
+
+place_activity11 = PlaceActivity.new(
+  place_id: place5.id,
+  activity_id: activity_10.id
+)
+place_activity11.save!
+
+
+
+
+project1 = Project.new(
+  place_id: place2.id,
+  user_id: user_evan.id,
+  activity_id: activity_9.id,
+  details: "Pourrais-je créer une secte ici ?",
+  start_date: "Fri, 26 Aug 2022"
+)
+
+project1.save!
+
+
+project2 = Project.new(
+  place_id: place1.id,
+  user_id: user_silvia.id,
+  activity_id: activity_3.id,
+  details: "J'ai un projet qui n'est pas vanille pour ce château !",
+  start_date: "Fri, 26 Aug 2022",
+  end_date: "Sun, 28 Aug 2022"
+)
+
+project2.save!

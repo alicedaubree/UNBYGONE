@@ -12,6 +12,7 @@ export default class extends Controller {
     // set as default input
     this.geocoder = new MapboxGeocoder({
       accessToken: this.apiKeyValue,
+      countries: 'fr',
       types: "country,region,place,postcode,locality,neighborhood,address"
     })
     this.geocoder.addTo(this.element)
