@@ -49,7 +49,7 @@
     <div class="col-12 col-lg-6">
     <h4 class="text-center my-2"><strong>Localisation</strong></h4>
     <p class="my-2">📍<em><%= @place.address %></em></p>
-    <div class="rounded" style="width: 100%; height: 400px;"
+    <div class="rounded-angle" style="width: 100%; height: 400px;"
     class="map-index"
     data-controller="map"
     data-map-markers-value="<%= @markers.to_json %>"
@@ -63,6 +63,8 @@
     <p class="text-center my-2"><%= link_to "💡 Connectez-vous et proposez un projet pour #{@place.title} !", new_user_session_path, class: "link-solo" %></p>
     <% elsif !current_user.local_authority %>
     <p class="text-center my-2">Il n'y a pas encore de projet en cours pour <%=@place.title%>, <br><%= link_to "proposez-en un 💡", new_place_project_path(@place.id), class: "link-solo" %></p>
+    <% else %>
+    <p class="text-center my-2">Il n'y a pas encore de projet en cours pour <%=@place.title%>.</p>
     <% end %>
     <% else %>
         <% if current_user.nil? %>
@@ -81,9 +83,9 @@
           <% end %>
           <% end %>
           </h2>
-          <h3><%= project.accepted ? "✅ Ce projet est accepté" : "⌚ Ce projet est en attente d'acceptation" %></h3>
-          <p><%= project.details %></p>
-          <p><%= project.start_date %><% if project.end_date %> - <%= project.end_date%><% end %></p>
+          <h3><%= project.accepted ? "✅ Ce projet est accepté" : "⏰ Ce projet est en attente d'acceptation" %></h3>
+          <p><%= project.details.first(50) %></p>
+          <p><span class="me-5"><strong><%= project.activity.name %></strong></span><%= project.start_date %><% if project.end_date %> - <%= project.end_date%><% end %></p>
         </div>
       </div>
     <% end %>

@@ -436,8 +436,17 @@ place_activity21.save!
 
 
 
+place_activity22 = PlaceActivity.new(
+  place_id: place5.id,
+  activity_id: activity_1.id
+)
+place_activity22.save!
 
-
+place_activity23 = PlaceActivity.new(
+  place_id: place5.id,
+  activity_id: activity_3.id
+)
+place_activity23.save!
 
 project1 = Project.new(
   place_id: place2.id,

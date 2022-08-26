@@ -38,12 +38,12 @@
     <% current_user.places.each do |place| %>
     <% place.projects.each do |project| %>
       <div class="card-project my-5" data-aos="flip-down">
-      <%= cl_image_tag project.user.photo.key, crop: :fill, class: "m-2 rounded" %>
+      <%= cl_image_tag project.user.photo.key, crop: :fill, height: 100, width:100%>
         <div class="card-project-infos">
           <h2>Projet de <%= project.user.first_name %> pour <%= place.title %></h2>
-          <h3><%= project.accepted ? "✅ Ce projet est accepté" : "⌚ Ce projet est en attente d'acceptation" %></h3>
+          <h3><%= project.accepted ? "✅ Ce projet est accepté" : "⏰ Ce projet est en attente d'acceptation" %></h3>
           <p><%= project.details %></p>
-          <p class="mb-3"><%= project.start_date %> <%= "- #{project.end_date}" if project.end_date %></p>
+          <p class="mb-3"><span class="me-5"><strong><%= project.activity.name %></strong></span><%= project.start_date %><% if project.end_date %> - <%= project.end_date%><% end %></p>
           <a class="m-1 link-solo", href=<%= "mailto:#{project.user.email}" %>>✉️ Envoyer un e-mail à <%= project.user.first_name %></a>
           <% unless project.accepted %>
           <%= link_to "✅ Accepter le projet", accept_place_project_path(place.id, project.id), data: {turbo_method: :patch}, class:" m-1 link-solo"%>
@@ -61,12 +61,12 @@
     <div class="col-12 col-lg-8">
     <% current_user.projects.each do |project| %>
       <div class="card-project my-5" data-aos="flip-down">
-      <%= cl_image_tag project.place.photos[0].key, crop: :fill, crop: :fill, height: 100, width:100 %>
+      <%= cl_image_tag project.place.photos[0].key, crop: :fill, height: 100, width:100 %>
         <div class="card-project-infos">
           <h2>Votre projet pour <%= project.place.title %></h2>
-          <h3><%= project.accepted ? "✅ Ce projet est accepté" : "⌚ Ce projet est en attente d'acceptation par #{project.place.user.authority_name}" %></h3>
+          <h3><%= project.accepted ? "✅ Votre projet est accepté" : "⏰ Votre projet est en attente d'acceptation par #{project.place.user.authority_name}" %></h3>
           <p><%= project.details %></p>
-          <p><%= project.start_date %><% if project.end_date %> - <%= project.end_date%><% end %></p>
+          <p><span class="me-5"><strong><%= project.activity.name %></strong></span><%= project.start_date %><% if project.end_date %> - <%= project.end_date%><% end %></p>
         </div>
       </div>
     <% end %>
