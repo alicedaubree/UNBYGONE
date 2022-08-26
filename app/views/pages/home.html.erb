@@ -29,7 +29,8 @@
     <% if activity.name != "🤔 Autre" %>
       <div class="col-6 col-lg-3 d-flex-inline">
       <div class="my-3">
-          <i class="tag-activity"><a href="http://localhost:3000/places?query=<%= activity.name %>&commit=Search"><%= activity.name %></a></i>
+      <%# http://localhost:3000/places?query= %>
+        <i class="tag-activity"><a href="https://unbygone.herokuapp.com/places?query=<%= activity.name %>&commit=Rechercher"><%= activity.name %></a></i>
       </div>
           <%# <%= link_to(places_path) do %>
               <%# <div class="tag-activity m-2"> %>
