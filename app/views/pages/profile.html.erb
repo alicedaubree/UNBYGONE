@@ -1,8 +1,7 @@
 <% if current_user %>
-<% if current_user.local_authority %>
-
-<div class="container my-5">
-<h2><strong>Mes lieux</strong></h2>
+  <% if current_user.local_authority %>
+  <div class="container my-5">
+  <h2><strong>Mes lieux</strong></h2>
   <div class="row">
       <% current_user.places.each do |place| %>
       <div class="cards-index col-12 col-lg-4">
@@ -22,15 +21,22 @@
       <% end %>
     </div>
   </div>
-</div>
+  </div>
+  </div>
+  <% end %>
 
-</div>
-<% end %>
+  <div class="container">
 
-<div class="container">
+  <h2><strong>Mes projets</strong></h2>
 
-<h2><strong>Mes projets</strong></h2>
-<% if current_user.local_authority %>
+  <% if current_user.projects.size == 0 %>
+  <div class="row">
+    <div class="col-12 col-lg-8">
+    <p>Vous n'avez pas encore de projet en cours.</p>
+    </div>
+  </div>
+  <% else %>
+  <% if current_user.local_authority %>
 
   <div class="row">
     <div class="col-12 col-lg-8">
@@ -54,7 +60,7 @@
     </div>
   </div>
 
-<% else %>
+  <% else %>
 
   <div class="row">
     <div class="col-12 col-lg-8">
@@ -72,12 +78,9 @@
     </div>
   </div>
 
-<% end %>
-
-</div>
+  <% end %>
+  <% end %>
+  </div>
 <% else %>
-
 <%= link_to "Connectez-vous pour voir votre profil", new_user_session_path, class: "nav-link" %>
-
-
 <% end %>
