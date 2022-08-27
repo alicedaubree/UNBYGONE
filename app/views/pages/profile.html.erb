@@ -29,13 +29,6 @@
 
   <h2><strong>Mes projets</strong></h2>
 
-  <% if current_user.projects.size == 0 %>
-  <div class="row">
-    <div class="col-12 col-lg-8">
-    <p>Vous n'avez pas encore de projet en cours.</p>
-    </div>
-  </div>
-  <% else %>
   <% if current_user.local_authority %>
 
   <div class="row">
@@ -78,7 +71,6 @@
     </div>
   </div>
 
-  <% end %>
   <% end %>
   </div>
 <% else %>
